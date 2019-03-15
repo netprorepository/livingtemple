@@ -1,0 +1,20 @@
+RewriteEngine On
+
+RewriteBase /
+
+
+# flyparts is project name please replace with your project folder name and onlive
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+
+RewriteRule ^([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)\/$ index.php?fid=$1&sid=$2&tid=$3&foid=$4&fiid=$5 [QSA,NC]
+
+RewriteRule ^([^/]*)/([^/]*)/([^/]*)/([^/]*)\/$ index.php?fid=$1&sid=$2&tid=$3&foid=$4 [QSA,NC]
+RewriteRule ^([^/]*)/([^/]*)/([^/]*)\/$ index.php?fid=$1&sid=$2&tid=$3 [QSA,NC]
+
+RewriteRule ^([^/]*)/([^/]*)\/$ index.php?fid=$1&sid=$2 [QSA,NC]
+
+RewriteRule ^([^/]*)\/$ index.php?fid=$1 [QSA,NC]	
